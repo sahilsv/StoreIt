@@ -7,6 +7,7 @@ const FormattedDateTime = ({
   date: string;
   className?: string;
 }) => {
+    console.log(date);
   return (
     <p className={cn("body-1 text-light-200", className)}>
       {formatDateTime(date)}
