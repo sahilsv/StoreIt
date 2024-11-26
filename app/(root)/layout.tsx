@@ -3,6 +3,7 @@ import MobileNavigation from "@/components/MobileNavigation";
 import Sidebar from "@/components/Sidebar";
 import { getCurrentUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
+import { Toaster } from "@/components/ui/toaster";
 import React from "react";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
@@ -18,8 +19,9 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
       <Sidebar {...currentUser} />
       <section className="flex flex-1 h-full flex-col">
         <MobileNavigation {...currentUser} />
-        <Header /> 
+        <Header userId={currentUser.$id} accountId={currentUser.accountId} /> 
         <div className="main-content">{children}</div>
+        <Toaster />
       </section>
     </main>
   );

@@ -98,7 +98,7 @@ export const getCurrentUser = async () => {
     const { databases, account } = await createSessionClient();
 
     const result = await account.get();
-    console.log(result);
+    // console.log(result);
 
     const user = await databases.listDocuments(
       appwriteConfig.databaseId,
