@@ -75,6 +75,8 @@ const Dashboard = async () => {
                   type={file.type}
                   extension={file.extension}
                   url={file.url}
+                  imageClassName={""}
+                  className={""}
                 />
 
                 <div className="recent-file-details">

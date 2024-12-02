@@ -24,7 +24,6 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
 
   const onDrop = useCallback(
     async (acceptedFiles: File[]) => {
-      
       setFiles(acceptedFiles);
 
       const uploadPromises = acceptedFiles.map(async (file) => {
@@ -57,7 +56,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
 
       await Promise.all(uploadPromises);
     },
-    [ownerId, accountId, path]
+    [ownerId, accountId, path, toast]
   );
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
@@ -97,6 +96,8 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
                     type={type}
                     extension={extension}
                     url={convertFileToUrl(file)}
+                    imageClassName={""}
+                    className={""}
                   />
                   <div className="preview-item-name">
                     {file.name}
